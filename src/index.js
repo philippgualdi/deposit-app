@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// This file is part of Invenio-Records-Marc21.
+// Copyright (C) 2021 Graz University of Technology.
+//
+// Invenio-Records-Marc21 is free software; you can redistribute it and/or modify it
+// under the terms of the MIT License; see LICENSE file for more details.
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
+
+import { getInputFromDOM } from "react-invenio-deposit";
+import { Marc21DepositForm } from "./Marc21DepositForm";
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <Marc21DepositForm
+        record={getInputFromDOM("marc21-deposit-record")}
+        files={getInputFromDOM("marc21-deposit-files")}
+        config={getInputFromDOM("marc21-deposit-config")}
+    />,
+    document.getElementById("marc21-deposit-form")
+  );
