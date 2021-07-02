@@ -100,7 +100,7 @@ export class Marc21Field extends Component {
               tag={this.state.tag}
               onChange={ this.handleTagChange}/>
           </Grid.Column>
-          <Grid.Column width={2}>
+          <Grid.Column width={4}>
             <Marc21DropDown 
               placeholder="Ind1"
               name="ind1"
@@ -110,7 +110,7 @@ export class Marc21Field extends Component {
               options={this.generateOptions(this.state.tag, "indicator1")}
             />
           </Grid.Column>
-          <Grid.Column width={2}>
+          <Grid.Column width={4}>
             <Marc21DropDown 
               placeholder="Ind2"
               name="ind2"
@@ -119,7 +119,14 @@ export class Marc21Field extends Component {
               onChange={ this.handleInd2Change}
               options={this.generateOptions(this.state.tag, "indicator2")}/>
           </Grid.Column>
-          <Grid.Column width={10}>
+          <Grid.Column width={4}>
+            {/* <SubFields/> */}
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={2}>
+          </Grid.Column>
+          <Grid.Column width={14}>
             <SubFields/>
           </Grid.Column>
         </Grid.Row>

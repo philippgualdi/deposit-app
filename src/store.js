@@ -6,6 +6,10 @@ import { SchemaState } from './state/reducers/schema';
 const preloadSchema = (files) => {
 };
 
+export const INITIAL_STORE_STATE = {
+  formState: null,
+};
+
 export function configureStore(appConfig) {
     const { record, files, config, permissions, schema, ...extra } = appConfig;
     const initialDepositState = {
@@ -13,6 +17,7 @@ export function configureStore(appConfig) {
       config,
       //permissions,
       schema,
+      ...INITIAL_STORE_STATE
     };
     const preloadedState = {
       //deposit: initialDepositState,

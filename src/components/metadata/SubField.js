@@ -45,21 +45,19 @@ export class SubField extends Component {
         labelIcon,
       } = this.props;
         return (
-          <Grid className={"subfield"}>
-            <Grid.Row>
+            <Grid.Row stretched>
               <Grid.Column width={3}>
               <SubFieldCode  subplaceholder="Code"/>
               </Grid.Column>
-              <Grid.Column width={11}>
+              <Grid.Column width={10}>
               <Input placeholder="Value"></Input>
               </Grid.Column>
-              <Grid.Column width={1}>
+              <Grid.Column width={2}>
               <Button circular compact basic icon>
                 <Icon name="add square"/>
               </Button>
               </Grid.Column>
             </Grid.Row>
-          </Grid>
           
         );
     }
@@ -75,13 +73,10 @@ export class SubFields extends Component {
 	}
 
     render() {
-        const {
-          fieldPath,
-          formik,
-          active,
-        } = this.props;
         return (
-          <Segment><SubField/></Segment>
+          <Grid className="datafield"> 
+            <SubField/>
+          </Grid>
         );
     }
 }

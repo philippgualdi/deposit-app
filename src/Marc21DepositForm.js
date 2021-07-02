@@ -11,8 +11,8 @@ import {
   DepositFormTitle,
   FileUploader,
   PublishButton,
-  SaveButton,
 } from "react-invenio-deposit";
+import {SaveButton} from "./components/SaveButton";
 import { AccordionField } from "react-invenio-forms";
 import { Card, Container, Grid, Ref, Sticky } from "semantic-ui-react";
 import {Marc21DepositFormApp} from "./Marc21DepositFormApp";
@@ -93,12 +93,12 @@ export class Marc21DepositForm extends Component {
               <Grid.Column width={5} className="deposit-sidebar">
               
                 <Card className="actions">
-                  {/* <Card.Content>
+                  <Card.Content>
                     <div className="sidebar-buttons">
                       <SaveButton fluid className="save-button" />
                     </div>
                     <PublishButton fluid />
-                  </Card.Content> */}
+                  </Card.Content> 
                 </Card>
                 <Sticky context={this.sidebarRef} offset={10}>
                 <Card className="shortcuts">

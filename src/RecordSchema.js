@@ -91,11 +91,7 @@ export class RecordSchema {
   getLeaderFieldOptions(key) {
     const leaderfield = this.getLeaderField(key);
     const leaderfield_codes = _get(leaderfield, ["codes"], {});
-    let codes = []
-    for (const [key, value] of Object.entries(leaderfield_codes)) {
-      let code = { label: key, value: value}
-      codes.push(code);
-    }
+    let codes = this.generateDropdownOptions(leaderfield_codes);
     return codes;
   }
 
@@ -119,6 +115,15 @@ export class RecordSchema {
     return datafield[key];
   }
 
+  generateDropdownOptions(fields){
+    let codes = []
+    for (const [key, value] of Object.entries(fields)) {
+      let code = { key: key, label: key, value: key, text: value["label"]}
+      codes.push(code);
+    }
+    return codes;
+  }
+
   /**
    * Finds tag and indicator position select options
    *
@@ -132,12 +137,9 @@ export class RecordSchema {
       return codes;
     }
     const datafield_codes = datafield[ind]["codes"];
-
+    codes = this.generateDropdownOptions(datafield_codes);
     
-    for (const [key, value] of Object.entries(datafield_codes)) {
-      let code = { label: key, value: value}
-      codes.push(code);
-    }
+   
     return codes;
   }
 
